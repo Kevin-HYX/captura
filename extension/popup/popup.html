@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Workflow Recorder</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="lwr-popup">
+      <header>
+        <h1>Workflow Recorder</h1>
+        <p id="status">读取当前页面状态...</p>
+      </header>
+
+      <div class="actions">
+        <button id="toggle" type="button">切换批注模式</button>
+        <button id="dynamic" type="button">切换动态录入</button>
+        <button id="export" type="button">复制文本</button>
+        <button id="clear" type="button">清空</button>
+      </div>
+
+      <section class="settings" aria-label="Recorder 设置">
+        <label>
+          <input id="include-style-changes" type="checkbox">
+          <span>记录 style 属性变化</span>
+        </label>
+      </section>
+
+      <section class="dev-loop" aria-label="Dev MCP Bridge 设置">
+        <h2>Dev MCP Bridge</h2>
+        <p id="dev-bridge-status" class="bridge-status is-unknown">Dev Bridge checking...</p>
+        <label>
+          <span>Server</span>
+          <input id="dev-loop-server" type="text" placeholder="http://127.0.0.1:8796">
+        </label>
+        <label>
+          <span>Run ID</span>
+          <input id="dev-loop-run-id" type="text" placeholder="runId">
+        </label>
+        <label class="dev-loop-enable">
+          <input id="dev-loop-enabled" type="checkbox">
+          <span>启用 Dev MCP Bridge</span>
+        </label>
+        <button id="dev-loop-save" type="button">保存 Dev MCP Bridge</button>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

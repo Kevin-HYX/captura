@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="560" viewBox="0 0 1180 560" role="img" aria-labelledby="title desc">
+  <title id="title">Recorder toolbar dock transition prototype</title>
+  <desc id="desc">Toolbar switches dock side by collapsing into the black launcher anchor, moving the anchor, then expanding from the new side.</desc>
+  <defs>
+    <style>
+      text { font-family: "Segoe UI", "Microsoft YaHei", Arial, sans-serif; fill: #151922; }
+      .muted { fill: #647084; font-size: 17px; }
+      .label { font-weight: 800; font-size: 22px; }
+      .small { font-size: 15px; fill: #647084; }
+      .stage { fill: #ffffff; stroke: #d9dee7; stroke-width: 2; }
+      .toolbar { fill: #fffffc; stroke: #d7dde8; stroke-width: 2; filter: drop-shadow(0 8px 16px rgba(18, 26, 38, 0.12)); }
+      .anchor { fill: #151922; }
+      .button { fill: #ffffff; stroke: #e0e5ee; stroke-width: 1.5; }
+      .buttonText { font-size: 13px; font-weight: 700; text-anchor: middle; }
+      .badge { fill: #151922; stroke: #ffffff; stroke-width: 2; }
+      .badgeText { fill: #ffffff; font-size: 12px; font-weight: 800; text-anchor: middle; }
+      .arrow { fill: none; stroke: #151922; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; marker-end: url(#arrowHead); }
+      .ghost { fill: none; stroke: #c8d0dc; stroke-width: 2; stroke-dasharray: 8 8; }
+      .phase { fill: #f5f7fa; stroke: #d9dee7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowHead" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#151922" />
+    </marker>
+  </defs>
+
+  <rect x="24" y="24" width="1132" height="512" rx="28" class="stage" />
+  <text x="52" y="68" class="label">Recorder 工具条左右切换动效原型</text>
+  <text x="52" y="98" class="muted">黑色中心球保持为稳定锚点：先收缩，再移动锚点，最后从目标方向展开。批注状态和角标不重置。</text>
+
+  <rect x="60" y="135" width="300" height="126" rx="24" class="phase" />
+  <text x="84" y="170" class="label">1. 左侧展开</text>
+  <text x="84" y="198" class="small">anchor 在左，按钮向右展开</text>
+  <rect x="84" y="218" width="246" height="54" rx="27" class="toolbar" />
+  <circle cx="114" cy="245" r="22" class="anchor" />
+  <path d="M104 249 C112 238 119 238 123 247 C126 254 134 251 136 244 L136 236" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+  <circle cx="104" cy="249" r="3" fill="#ffffff" />
+  <rect x="135" y="227" width="42" height="36" rx="9" class="button" />
+  <text x="156" y="251" class="buttonText">动</text>
+  <rect x="184" y="227" width="42" height="36" rx="9" class="button" />
+  <text x="205" y="251" class="buttonText">批</text>
+  <circle cx="218" cy="226" r="12" class="badge" />
+  <text x="218" y="231" class="badgeText">2</text>
+  <rect x="233" y="227" width="42" height="36" rx="9" class="button" />
+  <text x="254" y="251" class="buttonText">字</text>
+  <rect x="282" y="227" width="36" height="36" rx="9" class="button" />
+  <text x="300" y="251" class="buttonText">ZIP</text>
+
+  <path d="M378 245 C417 245 423 245 462 245" class="arrow" />
+
+  <rect x="480" y="135" width="220" height="126" rx="24" class="phase" />
+  <text x="504" y="170" class="label">2. 收缩</text>
+  <text x="504" y="198" class="small">140ms，内容区 max-width 到 0</text>
+  <rect x="552" y="218" width="62" height="54" rx="27" class="toolbar" />
+  <circle cx="583" cy="245" r="22" class="anchor" />
+  <path d="M573 249 C581 238 588 238 592 247 C595 254 603 251 605 244 L605 236" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+  <circle cx="573" cy="249" r="3" fill="#ffffff" />
+  <path d="M526 245 L552 245" class="ghost" />
+  <path d="M614 245 L666 245" class="ghost" />
+
+  <path d="M720 245 C759 245 765 245 804 245" class="arrow" />
+
+  <rect x="822" y="135" width="296" height="126" rx="24" class="phase" />
+  <text x="846" y="170" class="label">3. 锚点移动</text>
+  <text x="846" y="198" class="small">120ms，折叠状态只移动黑球位置</text>
+  <path d="M888 245 C938 224 993 224 1046 245" class="ghost" />
+  <rect x="880" y="218" width="62" height="54" rx="27" class="toolbar" opacity="0.42" />
+  <circle cx="911" cy="245" r="22" class="anchor" opacity="0.42" />
+  <rect x="1028" y="218" width="62" height="54" rx="27" class="toolbar" />
+  <circle cx="1059" cy="245" r="22" class="anchor" />
+  <path d="M1049 249 C1057 238 1064 238 1068 247 C1071 254 1079 251 1081 244 L1081 236" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+  <circle cx="1049" cy="249" r="3" fill="#ffffff" />
+
+  <path d="M590 308 C590 344 590 351 590 386" class="arrow" />
+
+  <rect x="60" y="346" width="300" height="126" rx="24" class="phase" />
+  <text x="84" y="381" class="label">4. 右侧展开</text>
+  <text x="84" y="409" class="small">anchor 在右，按钮向左展开</text>
+  <rect x="84" y="429" width="246" height="54" rx="27" class="toolbar" />
+  <rect x="96" y="438" width="42" height="36" rx="9" class="button" />
+  <text x="117" y="462" class="buttonText">ZIP</text>
+  <rect x="145" y="438" width="42" height="36" rx="9" class="button" />
+  <text x="166" y="462" class="buttonText">字</text>
+  <rect x="194" y="438" width="42" height="36" rx="9" class="button" />
+  <text x="215" y="462" class="buttonText">批</text>
+  <circle cx="228" cy="437" r="12" class="badge" />
+  <text x="228" y="442" class="badgeText">2</text>
+  <rect x="243" y="438" width="42" height="36" rx="9" class="button" />
+  <text x="264" y="462" class="buttonText">动</text>
+  <circle cx="300" cy="456" r="22" class="anchor" />
+  <path d="M290 460 C298 449 305 449 309 458 C312 465 320 462 322 455 L322 447" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" />
+  <circle cx="290" cy="460" r="3" fill="#ffffff" />
+
+  <rect x="425" y="346" width="322" height="126" rx="24" class="phase" />
+  <text x="449" y="381" class="label">状态保持</text>
+  <text x="449" y="412" class="small">annotationMode 不退出</text>
+  <text x="449" y="440" class="small">annotations / dynamic / marker 不清空</text>
+  <text x="449" y="468" class="small">角标由 annotations.length 持续驱动</text>
+
+  <rect x="790" y="346" width="328" height="126" rx="24" class="phase" />
+  <text x="814" y="381" class="label">面板联动</text>
+  <text x="814" y="412" class="small">dock 切换完成后重新定位面板</text>
+  <text x="814" y="440" class="small">底部空间不足时，批注/字段面板向上展开</text>
+</svg>

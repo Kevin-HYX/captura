@@ -1,0 +1,4 @@
+interface:
+  display_name: "Create Plugin From Record"
+  short_description: "从录制材料生成 Ligentia Flow Package"
+  default_prompt: "使用 $create-plugin-from-record，根据 Dynamic 和 Static Recorder 记录创建 Ligentia plugin。"

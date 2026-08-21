@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Ligentia Workflow Recorder icon">
+  <rect x="10" y="10" width="108" height="108" rx="24" fill="#0f4f4a"/>
+  <path d="M35 77c17-24 32-26 40-7 7 17 27 12 31-5 1-5 1-10 1-16V35" fill="none" stroke="#ffffff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="34" cy="78" r="13" fill="#ffffff"/>
+  <rect x="89" y="25" width="26" height="26" rx="6" fill="#ffffff"/>
+  <circle cx="101" cy="101" r="18" fill="#ef4444" stroke="#ffffff" stroke-width="7"/>
+</svg>
